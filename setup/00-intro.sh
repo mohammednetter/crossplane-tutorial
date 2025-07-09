@@ -42,7 +42,7 @@ rm -f .env
 # Control Plane Cluster #
 #########################
 
-kind create cluster --config kind.yaml
+#kind create cluster --config kind.yaml
 
 kubectl apply \
     --filename https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/kind/deploy.yaml
@@ -147,14 +147,14 @@ elif [[ "$HYPERSCALER" == "aws" ]]; then
     AWS_ACCOUNT_ID=$(gum input --placeholder "AWS Account ID" --value "$AWS_ACCOUNT_ID")
     echo "export AWS_ACCOUNT_ID=$AWS_ACCOUNT_ID" >> .env
 
-    echo "[default]
-aws_access_key_id = $AWS_ACCESS_KEY_ID
-aws_secret_access_key = $AWS_SECRET_ACCESS_KEY
-" >aws-creds.conf
+#    echo "[default]
+#aws_access_key_id = $AWS_ACCESS_KEY_ID
+#aws_secret_access_key = $AWS_SECRET_ACCESS_KEY
+#" >aws-creds.conf
 
-    kubectl --namespace crossplane-system \
-        create secret generic aws-creds \
-        --from-file creds=./aws-creds.conf
+#    kubectl --namespace crossplane-system \
+#        create secret generic aws-creds \
+#        --from-file creds=./aws-creds.conf
 
     kubectl apply --filename providers/aws-config.yaml
 
