@@ -140,7 +140,7 @@ elif [[ "$HYPERSCALER" == "aws" ]]; then
 
     AWS_ACCESS_KEY_ID=$(gum input --placeholder "AWS Access Key ID" --value "$AWS_ACCESS_KEY_ID")
     echo "export AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID" >> .env
-    
+
     AWS_SECRET_ACCESS_KEY=$(gum input --placeholder "AWS Secret Access Key" --value "$AWS_SECRET_ACCESS_KEY" --password)
     echo "export AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY" >> .env
 
@@ -233,7 +233,7 @@ spec:
 
 fi
 
-kubectl create namespace a-team
+#kubectl create namespace a-team
 
 ###########
 # Argo CD #
